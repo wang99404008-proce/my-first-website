@@ -2,15 +2,124 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+    <!-- 關鍵 1：這行 meta 標籤是 RWD 的靈魂，告訴瀏覽器依照裝置寬度縮放網頁 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一個對外網頁</title>
+    <title>我的第一個 RWD 響應式網頁</title>
     <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
-        h1 { color: #333; }
+        /* 基本樣式重設 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 頁首 Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header p {
+            color: #bdc3c7;
+            margin-top: 0.5rem;
+        }
+
+        /* 容器 Container：限制網頁最大寬度並置中 */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 關鍵 2：卡片容器使用 Flexbox 排版 */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap; /* 空間不夠時，自動折行到下一排 */
+            gap: 20px;       /* 卡片之間的間距 */
+        }
+
+        /* 單個卡片樣式 */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            /* 關鍵 3：在寬螢幕下，三張卡片平分寬度（扣除 gap 之後大約各佔 30%） */
+            flex: 1 1 calc(33.333% - 14px); 
+            min-width: 280px; /* 卡片的最小寬度，防止縮得太小 */
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+        }
+
+        /* 頁尾 Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* 關鍵 4：媒體查詢（Media Query）
+           當螢幕寬度小於 768px（通常是平板和手機直向）時，卡片改為單欄 100% 寬度 */
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>🎉 恭喜！我的網頁成功上線了！</h1>
-    <p>這是使用 GitHub Pages 部署的靜態網頁。</p>
+
+    <header>
+        <h1>🌟 我的 RWD 探索之旅</h1>
+        <p>縮小你的瀏覽器視窗，看看卡片是如何自動排版的吧！</p>
+    </header>
+
+    <div class="container">
+        <div class="card-group">
+            
+            <div class="card">
+                <h2>📱 行動優先</h2>
+                <p>在手機上，這三張卡片會自動垂直疊放，讓使用者不需要左右滑動放大，就能輕鬆閱讀所有文字。</p>
+            </div>
+
+            <div class="card">
+                <h2>💻 電腦寬螢幕</h2>
+                <p>當螢幕足夠寬時，卡片會自動並排成漂亮的「三欄式」版面，充分利用桌機大螢幕的橫向空間。</p>
+            </div>
+
+            <div class="card-group-nested card"> <!-- 這裡我們使用了簡單的 Flexbox 特性 -->
+                <h2>⚡ 簡單強大</h2>
+                <p>我們只用了不到 20 行的 RWD 核心 CSS（Flexbox 加上一個 Media Query），就搞定了現代網頁最常見的響應式排版！</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Designed by Me. Made with HTML & CSS.</p>
+    </footer>
+
 </body>
 </html>
