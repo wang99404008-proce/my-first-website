@@ -27,14 +27,49 @@
             padding: 3rem;
             border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            position: relative; /* 為了讓下載按鈕定位 */
         }
 
-        /* 標題與聯絡資訊 */
+        /* 下載 PDF 按鈕 */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #0284c7;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn:hover {
+            background-color: #0369a1;
+        }
+
+        /* 頁首：大頭貼與個人資訊 */
         header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 2rem;
             margin-bottom: 2rem;
+        }
+
+        /* 關鍵：圓形大頭貼 CSS */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;      /* 圓形 */
+            object-fit: cover;        /* 防止圖片變形 */
+            border: 4px solid #f1f5f9; /* 淺灰色外框 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
         }
 
         header h1 {
@@ -57,11 +92,6 @@
             gap: 15px;
             font-size: 0.95rem;
             color: #64748b;
-        }
-
-        .contact-info span {
-            display: inline-flex;
-            align-items: center;
         }
 
         /* 區塊樣式 */
@@ -144,8 +174,17 @@
 <body>
 
     <div class="resume-container">
+        
+        <!-- 下載按鈕 (放在最上方方便 HR 下載) -->
+        <!-- download 屬性會強制瀏覽器下載檔案，而不是在瀏覽器裡直接開啟 -->
+        <a href="resume.pdf" download="王小明_個人履歷.pdf" class="download-btn">
+            📥 下載 PDF 履歷
+        </a>
+
         <!-- 頁首：個人基本資訊 -->
         <header>
+            <!-- 大頭貼圖片，指向同目錄下的 avatar.jpg -->
+            <img src="avatar.jpg" alt="個人照" class="avatar">
             <h1>汪真伃</h1>
             <p class="subtitle">影片剪輯師 / 業餘網頁開發者</p>
             <div class="contact-info">
@@ -156,11 +195,11 @@
             </div>
         </header>
 
-        <!-- 簡介 -->
+        <!-- 關於我 -->
         <section>
             <h2>關於我 About Me</h2>
             <p>
-                熱愛網頁開發與使用者體驗設計，擁有良好的問題解決能力與跨團隊溝通經驗。擅長使用 HTML, CSS 及 JavaScript 打造響應式（RWD）網頁，目前正專注於 React 前端框架的學習與實作。
+                熱愛媒體創作及影像視覺設計，擁有良好的問題解決能力與跨團隊溝通經驗。擅長使用 Edius, Final Cut Pro,Davinci 及 Photoshop 等剪輯後製軟體打造我的影音天地，目前也正藉由AI學習於 React 前端框架的學習與實作。
             </p>
         </section>
 
@@ -170,24 +209,25 @@
             
             <div class="timeline-item">
                 <div class="item-title-row">
-                    <span>前端開發實習生 <span class="item-company">@ 雲端科技股份有限公司</span></span>
-                    <span class="item-date">2025/07 - 2026/02</span>
+                    <span>新聞剪輯師 <span class="item-company">@ 慈濟人文志業中心</span></span>
+                    <span class="item-date"> 2019/02-在職中 </span>
                 </div>
                 <ul class="item-desc">
-                    <li>使用 React 與 Tailwind CSS 參與公司內部管理系統的前端開發與維護。</li>
-                    <li>優化現有產品的 RWD 效能，提升行動裝置使用者留存率 15%。</li>
-                    <li>與 UI/UX 設計師及後端工程師緊密協作，串接 RESTful API 實現資料視覺化。</li>
+                    <li>使用 Edius 與 Photoshop 製作日常的新聞及專題。</li>
+                    <li>參與新聞帶狀節目專案包裝設計及影像剪輯。</li>
+                    <li>每日新聞鏡面圖片設計製作。</li>
                 </ul>
             </div>
 
             <div class="timeline-item">
                 <div class="item-title-row">
-                    <span>網頁設計自由接案者 <span class="item-company">@ 個人工作室</span></span>
+                    <span>節目執行製作 <span class="item-company">@ 慈濟人文志業中心</span></span>
                     <span class="item-date">2024/09 - 2025/06</span>
                 </div>
                 <ul class="item-desc">
-                    <li>為在地中小企業設計並開發客製化形象官網，共完成 3 個上線專案。</li>
-                    <li>協助客戶設定網域與託管平台（GitHub Pages、Vercel），提供上線後的技術支援。</li>
+                    <li>節目聲音影像後製，每週預告剪輯製作。</li>
+                    <li>節目錄影協助、旁白錄音。</li>
+                    <li>節目播出的行政流程。</li>
                 </ul>
             </div>
         </section>
@@ -196,8 +236,8 @@
         <section>
             <h2>專業技能 Skills</h2>
             <div class="skills-container">
-                <span class="skill-badge">HTML5 / CSS3</span>
-                <span class="skill-badge">JavaScript (ES6+)</span>
+                <span class="skill-badge">Edius / Photoshop</span>
+                <span class="skill-badge">Final Cut Pro</span>
                 <span class="skill-badge">RWD 響應式排版</span>
                 <span class="skill-badge">Git & GitHub</span>
                 <span class="skill-badge">React</span>
@@ -211,11 +251,11 @@
             <h2>教育背景 Education</h2>
             <div class="timeline-item">
                 <div class="item-title-row">
-                    <span>資訊管理學系 學士 <span class="item-company">@ 台灣科技大學</span></span>
+                    <span>傳播學士學位學程 學士 <span class="item-company">@ 國立政治大學</span></span>
                     <span class="item-date">2021/09 - 2025/06</span>
                 </div>
                 <ul class="item-desc">
-                    <li>主修課程：網頁程式設計、資料庫管理系統、系統分析與設計。</li>
+                    <li>主修課程：電視及廣播節目製播、紀錄片製作、劇本寫作。</li>
                 </ul>
             </div>
         </section>
