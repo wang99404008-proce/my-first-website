@@ -11,12 +11,12 @@ collections:
   - name: "resume"
     label: "履歷資料"
     folder: "data"
-    format: "yml-frontmatter" # 關鍵：告訴後台這是有前置資料的 Markdown 檔！
-    extension: "md"           # 關鍵：副檔名一律存成 .md
+    format: "frontmatter"     # 修正：把 yml- 拿掉，正確名稱是 frontmatter
+    extension: "md"           # 維持副檔名為 .md
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "姓名", name: "name", widget: "string" }
       - { label: "現任職稱", name: "title", widget: "string" }
       - { label: "個人簡介", name: "bio", widget: "text" }
-      - { label: "詳細內文", name: "body", widget: "markdown" } # 順便送你一個強大的 Markdown 編輯器！
+      - { label: "詳細內文", name: "body", widget: "markdown" }
