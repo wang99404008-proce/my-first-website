@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: wang99404008-proce
+  repo: wang99404008-proce/Personal_Resume
   branch: main 
   
 media_folder: "images"
