@@ -1,8 +1,8 @@
 backend:
   name: github
   repo: wang99404008-proce/Personal_Resume
-  branch: main  # 如果你的 GitHub 預設分支是 master 請改成 master
-  base_url: https://decap-cms-oauth.vercel.app
+  branch: main  # 如果你的預設分支是 master 請改成 master
+  base_url: https://decap-cms-oauth.vercel.app  # 改用這個，完全不消耗 Netlify 額度
 
 media_folder: "data"
 public_folder: "/data"
