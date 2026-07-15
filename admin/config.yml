@@ -1,7 +1,8 @@
 backend:
   name: github
   repo: wang99404008-proce/Personal_Resume
-  branch: main 
+  branch: main  # 如果你的預設分支是 master 請改成 master
+  base_url: https://decap-cms-oauth.vercel.app
   
 media_folder: "images"
 public_folder: "/images"
